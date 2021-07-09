@@ -1,0 +1,329 @@
+{
+  "intents": [
+    {
+      "intent": "العمل",
+      "examples": [
+        {
+          "text": "اين تعمل"
+        },
+        {
+          "text": "فين تشتغل"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الفائدة",
+      "examples": [
+        {
+          "text": "ايش الفايده من الصفحه"
+        },
+        {
+          "text": "كيف تعمل الصفحه"
+        },
+        {
+          "text": "هل هذا مشروع"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "اهلا"
+        },
+        {
+          "text": "سلام"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "من-انت",
+      "examples": [
+        {
+          "text": "صف نفسك من فضلك"
+        },
+        {
+          "text": "فلنتحدث عنك"
+        },
+        {
+          "text": "قدم نفسك"
+        },
+        {
+          "text": "قل شيئا عن نفسك"
+        },
+        {
+          "text": "قول شي عن نفسك"
+        },
+        {
+          "text": "ما اسمك؟"
+        },
+        {
+          "text": "معلومات عنك"
+        },
+        {
+          "text": "من أنت؟"
+        },
+        {
+          "text": "مين انت"
+        },
+        {
+          "text": "هل تعرف من أنت؟"
+        }
+      ],
+      "description": "من انت"
+    },
+    {
+      "intent": "نكتة",
+      "examples": [
+        {
+          "text": "احكي لي شيئا مضحكا"
+        },
+        {
+          "text": "احكي لي شيئا مضحكا ومرحا"
+        },
+        {
+          "text": "احكي لي نكتة"
+        },
+        {
+          "text": "بدي نكتة"
+        },
+        {
+          "text": "عندك نكتة؟"
+        },
+        {
+          "text": "نكتة أخرى"
+        },
+        {
+          "text": "نكتة ثانية"
+        },
+        {
+          "text": "هانت نكتة"
+        }
+      ],
+      "description": "نكتة"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "روبوت",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "تحريك",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "روبوت",
+          "synonyms": [
+            "محرط"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "نكتة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "كسلان دخل الاختبار طاح القلم منو ...سلم الورقه "
+              },
+              {
+                "text": "احول بيسوق قاله صاحبه انتبه العامود قاله ماعليك بدخل بينهم ههه"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Jokes",
+      "dialog_node": "node_6_1625847099955",
+      "previous_sibling": "node_6_1625847424327"
+    },
+    {
+      "type": "standard",
+      "title": "من انت",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "انا المساعده ديمه احاول ان اجاوب غلى اسئلتك قدر المستطاع"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#من-انت",
+      "dialog_node": "node_6_1625847424327",
+      "previous_sibling": "node_7_1625848871820"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ارحب"
+              },
+              {
+                "text": "هلا والله "
+              },
+              {
+                "text": "اهلا وسهلا"
+              },
+              {
+                "text": "مرحببك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_7_1625846217333",
+      "previous_sibling": "node_6_1625847099955"
+    },
+    {
+      "type": "standard",
+      "title": "فائده",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "هذه صفحه تم تصميمها للتحكم بتحريك الذراع الاليه هذا المشروع من قبل شركة الاساليب الذكيه"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الفائدة",
+      "dialog_node": "node_7_1625848871820",
+      "previous_sibling": "node_9_1625849117973"
+    },
+    {
+      "type": "standard",
+      "title": "العمل",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مع شركة الاساليب الذكيه "
+              },
+              {
+                "text": "يمكنك زيارة موقعهم الخاص "
+              },
+              {
+                "text": "https://www.s-m.com.sa/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#العمل",
+      "dialog_node": "node_9_1625849117973",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_7_1625846217333",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا، كيف يمكنني مساعدتك؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
